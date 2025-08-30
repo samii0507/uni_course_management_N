@@ -14,11 +14,7 @@ export async function login(email: string, password: string): Promise<User> {
   return data
 }
 
-export async function register(params: {
-  email: string
-  username: string
-  password: string
-}): Promise<User> {
-  const { data } = await client.post<User>('/auth/register', params)
+export async function register({ email, username, password }: { email: string; username: string; password: string }) {
+  const { data } = await client.post('/auth/register', { email, username, password })
   return data
 }
